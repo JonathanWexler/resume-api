@@ -14,3 +14,9 @@ gem "sinatra-cross_origin"
 gem 'activerecord'
 # Connection between ActiveRecord and Sinatra
 gem 'sinatra-activerecord'
+# Encryption
+gem 'bcrypt-ruby'
+# for json parsing and response
+gem 'json'
+# for migrations
+gem 'rake'
