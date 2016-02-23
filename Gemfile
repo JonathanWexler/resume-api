@@ -14,3 +14,5 @@ gem "sinatra-cross_origin"
 gem 'activerecord'
 # Connection between ActiveRecord and Sinatra
 gem 'sinatra-activerecord'
+
+gem 'bcrypt-ruby'
