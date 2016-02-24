@@ -3,6 +3,7 @@ require 'sinatra/namespace'
 
 require 'json'
 require 'sinatra/activerecord'
+
 db = URI.parse('postgres:///resume-api')
 
 ActiveRecord::Base.establish_connection(
@@ -23,6 +24,7 @@ puts "ok"
 
 enable :sessions
 set :sessions => true
+
 require 'sinatra/cross_origin'
 
 set :port, 8080 
