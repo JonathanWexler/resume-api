@@ -31,3 +31,10 @@ class User < ActiveRecord::Base
     super(options.merge({ except: [:password_salt, :password_hash] }))
   end
 end
+
+
+class Experience < ActiveRecord::Base
+  # attr_accessor :title, :password_confirmation
+
+
+end

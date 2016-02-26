@@ -33,20 +33,30 @@ namespace '/api' do
             puts "USER IS: #{user_params}"
             u = User.new(user_params)
             if u.save
-                "YEP"
+                u
             else
-                "NOPe"
+                "Was not able to save the user"
             end
-            # params = parsed_params[:user]
-            # puts "EMAIL"
-            # puts parsed_params[:email]
-            # @user = User.where(email: params[:email]).first
-            # puts @user if @user != nil
-            # parsed_params.to_json
-            
         end
         get '/' do 
             User.all.to_json
+        end
+    end
+    namespace '/experiences' do 
+        post '/' do 
+            puts "Params Are: #{params}"
+            puts "USER IS: #{experience_params}"
+            e = Experience.new(experience_params)
+            if e.save
+                e
+            else
+                "Was not able to save the Experience"
+            end
+            
+        end
+
+        get '/' do 
+            Experience.all.to_json
         end
     end
 end
@@ -54,9 +64,11 @@ end
 private
 
 def user_params
-    u = params[:user]
-    puts u = JSON.parse(u)
+    u = JSON.parse(params[:user])
+    {first_name: u['first_name'], last_name: u['last_name'], email: u['email'], password: u['password']}
+end
 
-    puts h =  {first_name: u['first_name'], last_name: u['last_name'], email: u['email'], password: u['password']}
-    h
+def experience_params
+    u = JSON.parse(params[:experience])
+    {title: u['title'], position: u['position'], start_date: u['start_date'], end_date: u['end_date'], description: u['description']}
 end
