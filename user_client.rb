@@ -27,13 +27,14 @@ class UserClient
   # end 
   def show_all
     response = RestClient.get 'http://localhost:9292/api/users/', :user =>{}, :accept => :json 
-      puts response 
+    puts response 
   end
-    def save 
-      response = RestClient.post 'http://localhost:9292/api/users/', :user =>{          first_name: @first_name,
-        last_name: @last_name,
-        password: @password,
-        email: @email}.to_json, :accept => :json 
-        puts response 
-      end 
-    end
+  def save 
+    response = RestClient.post 'http://localhost:9292/api/users/', :user =>{          first_name: @first_name,
+      last_name: @last_name,
+      password: @password,
+      email: @email}.to_json, :accept => :json 
+      puts response 
+    end 
+
+  end
