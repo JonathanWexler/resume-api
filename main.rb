@@ -26,7 +26,13 @@ get '/users/:id' do
     @user.to_json
 end
 
+
 namespace '/api' do
+    namespace '/messages' do 
+        get '/secret_message' do 
+            {"It's no secret" => "Thank you for all of your hard work!"}.to_json
+        end
+    end
     namespace "/users" do 
         post '/' do 
             puts "Params Are: #{params}"
