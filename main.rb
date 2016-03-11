@@ -29,8 +29,13 @@ end
 
 namespace '/api' do
     namespace '/messages' do 
-        get '/secret_message/:name' do 
-            {"It's no secret" => "Thank you for all of your hard work, #{params[:name]}!"}.to_json
+        get '/secret_message/:name/:token' do 
+            if params[:token] == "bubble"
+                {"It's no secret" => "Thank you for all of your hard work, #{params[:name]}!"}.to_json
+            else
+                '<img src="https://media.giphy.com/media/5ftsmLIqktHQA/giphy.gif" />'
+            end
+            
         end
     end
     namespace "/users" do 
