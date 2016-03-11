@@ -29,8 +29,8 @@ end
 
 namespace '/api' do
     namespace '/messages' do 
-        get '/secret_message' do 
-            {"It's no secret" => "Thank you for all of your hard work!"}.to_json
+        get '/secret_message/:name' do 
+            {"It's no secret" => "Thank you for all of your hard work, #{params[:name]}!"}.to_json
         end
     end
     namespace "/users" do 
